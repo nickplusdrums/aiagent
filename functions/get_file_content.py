@@ -1,5 +1,23 @@
 import os
 
+schema_get_files_info = types.FunctionDeclaration(
+    name="get_file_content",
+    description="Lists the content of a file at the provided file path, providing up to 10000 characters of content",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="File path relative to the working directory (default is the working directory itself)",
+            ),
+        },
+    ),
+)
+
+
+
+
+
 MAX_CHARS = 10000
 
 def get_file_content(working_directory, file_path):
