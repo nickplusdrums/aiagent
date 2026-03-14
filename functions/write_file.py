@@ -1,5 +1,26 @@
 import os
 
+schema_get_files_info = types.FunctionDeclaration(
+    name="write_file",
+    description="Lists the content of a file at the provided file path, providing up to 10000 characters of content",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="File path relative to the working directory (default is the working directory itself)",
+            ),
+            "content": types.Schema(
+                type=types.Type.STRING,
+                description="The string to be written into the file designated at the file path"
+            )
+        },
+    ),
+)
+
+
+
+
 def write_file(working_directory, file_path, content):
     try:
         working_dir_abs = os.path.abspath(working_directory) 
