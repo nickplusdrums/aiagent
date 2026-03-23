@@ -1,7 +1,8 @@
 import os
 import subprocess
+from google.genai import types
 
-schema_get_files_info = types.FunctionDeclaration(
+schema_run_python_file = types.FunctionDeclaration(
     name="run_python_file",
     description="Lists the content of a file at the provided file path, providing up to 10000 characters of content",
     parameters=types.Schema(
@@ -12,7 +13,8 @@ schema_get_files_info = types.FunctionDeclaration(
                 description="File path relative to the working directory (default is the working directory itself)",
             ),
             "args": types.Schema(
-                type=types.Type.STRING,
+                type=types.Type.ARRAY,
+                items=types.Schema(type=types.Type.STRING),
                 description="Additional arguments to be passed to the python file that will be ran"
             )
         },

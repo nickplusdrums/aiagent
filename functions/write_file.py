@@ -1,6 +1,7 @@
 import os
+from google.genai import types
 
-schema_get_files_info = types.FunctionDeclaration(
+schema_write_file = types.FunctionDeclaration(
     name="write_file",
     description="Lists the content of a file at the provided file path, providing up to 10000 characters of content",
     parameters=types.Schema(

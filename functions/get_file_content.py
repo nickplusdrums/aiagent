@@ -1,6 +1,7 @@
 import os
+from google.genai import types
 
-schema_get_files_info = types.FunctionDeclaration(
+schema_get_file_content = types.FunctionDeclaration(
     name="get_file_content",
     description="Lists the content of a file at the provided file path, providing up to 10000 characters of content",
     parameters=types.Schema(
